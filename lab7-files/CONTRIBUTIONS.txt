@@ -1,0 +1,9 @@
+partner 1: Ruth Tau
+-task 1
+-task 2
+-task 3
+
+partner 2: Evan Hiddema
+- task 1 tb
+- task 2 tb
+- task 3 tb
