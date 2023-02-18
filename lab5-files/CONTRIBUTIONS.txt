@@ -1,0 +1,9 @@
+Lab 5
+
+Partner 1: Ruth Tau
+37100518
+
+Partner 2: Evan Hiddema
+43889187
+
+- Both worked on programming verilog for the testbenches and modules

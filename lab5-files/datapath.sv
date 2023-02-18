@@ -1,0 +1,82 @@
+module datapath(input clk, input [15:0] datapath_in, input wb_sel,
+                input [2:0] w_addr, input w_en, input [2:0] r_addr, 
+		input en_A, input en_B,input en_C,
+		 input [1:0] shift_op, 
+		input sel_A, input sel_B,
+                input [1:0] ALU_op, input en_status,
+                output [15:0] datapath_out, output Z_out);
+ 
+
+// outputs
+ reg [15:0] out;
+ assign datapath_out = out;
+ reg zzout;
+ assign Z_out = zzout;
+
+
+//inputs local variables
+ reg [15:0] A;
+ reg [15:0] B;
+ reg [15:0] C;
+ reg [15:0] r_data;
+ reg [15:0] val_A;
+ reg [15:0] val_B;
+ reg [15:0] w_data;
+ reg [15:0] shift_out;
+ reg [15:0] ALU_out;
+ reg Z;
+ reg status;
+
+//main body
+always_ff @(posedge clk) begin
+ if (~wb_sel) begin
+ w_data <= datapath_out;
+end
+else begin
+ w_data <= datapath_in;
+ //for A as register
+ regfile (.w_data(w_data), .w_addr(w_addr), .w_en(w_en), .r_addr(r_addr), .clk(clk), .r_data(r_data));
+
+ if (en_A)
+ A <= r_data;
+
+
+ //for B as en_B
+ regfile (.w_data(w_data), .w_addr(w_addr), .w_en(w_en), .r_addr(r_addr), .clk(clk), .r_data(r_data));
+
+ if (en_B)
+ B <= r_data;
+
+
+ // A to mux
+ 	if (sel_A)
+	val_A <= 16'b0;
+	else
+	val_A <= A;
+
+ //B to mux
+  shifter(.shift_in(B), .shift_op(shift_op), .shift_out(shift_out));
+	if(sel_B)
+	val_B <= {11'b0, datapath_in[4:0]};
+	else
+	val_B <= shift_out;
+
+ //mux ALU
+  ALU (.val_A(val_A), .val_B(val_B), .ALU_op(ALU_op), .ALU_out(ALU_out), .Z(Z));
+
+ // status
+ if (en_status)
+ zzout <= Z;
+
+ //register C
+ if (en_C)
+ C <= ALU_out;
+
+ // C to datapath
+ out <= C;
+
+ 
+
+end
+end
+endmodule: datapath

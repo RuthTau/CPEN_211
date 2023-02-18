@@ -1,0 +1,45 @@
+module tb_datapath(output err);
+
+reg clk;
+reg [15:0] datapath_in;
+reg wb_sel;
+reg [2:0] w_addr;
+reg w_en;
+reg [2:0] r_addr;
+reg en_A;
+reg en_B;
+reg en_C;
+reg [1:0] shift_op;
+reg sel_A;
+reg sel_B;
+reg [1:0] ALU_op;
+reg en_status;
+
+wire [15:0] datapath_out;
+wire Z_out;
+
+datapath dut (.clk(clk), .datapath_in(datapath_in), .wb_sel(wb_sel),
+                .w_addr(w_addr), .w_en(w_en), .r_addr(r_addr), 
+		.en_A(en_A), .en_B(en_B), .en_C(en_C),
+		.shift_op(shift_op), 
+		.sel_A(sel_A), .sel_B(sel_B),
+       		.ALU_op(ALU_op),.en_status(en_status),
+                .datapath_out(datapath_out), .Z_out(Z_out));
+
+initial begin
+ 	forever begin 
+	clk=0;
+	#10;
+	clk =1;
+	#10;
+	end
+end
+
+initial begin
+
+//test for 
+
+
+end
+
+endmodule: tb_datapath
