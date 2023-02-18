@@ -1,0 +1,20 @@
+contributon 
+
+Yan Yau Tau
+37100518
+
+Evan Hiddema
+43889187
+
+
+
+
+details of contribution
+-lab3.v - Evan 
+-tb_lab3. Evan
+-DE1-Soc (FPGA)
+-  lab3 wave rtl.do. - Ruth
+- lab3 wave gatelevel.do - Ruth
+
+Evan did a lot of the code
+Ruth did a lot of debugging and simulation
