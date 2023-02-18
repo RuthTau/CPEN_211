@@ -1,0 +1,21 @@
+Lab 6
+
+Partner 1: Ruth Tau
+37100518
+
+Partner 2: Evan Hiddema
+43889187
+
+partner 1
+- controller.sv
+- controller testbench
+- modified datapath testbench
+- modified datapath
+- vo files
+
+partner 2
+- modified datapath
+- cpu
+- cpu testbench
+- idecoder
+- idecoder testbench
