@@ -1,0 +1,361 @@
+
+C:/Users/tauya/Downloads/lab4-files/address_map_arm.axf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <__cs3_interrupt_vector>:
+   0:	e59f43ac 	ldr	r4, [pc, #940]	; 3b4 <numbers+0x190>
+   4:	e59f53ac 	ldr	r5, [pc, #940]	; 3b8 <numbers+0x194>
+   8:	e59f63ac 	ldr	r6, [pc, #940]	; 3bc <numbers+0x198>
+
+0000000c <wait_key3>:
+   c:	e5947000 	ldr	r7, [r4]
+  10:	e5867000 	str	r7, [r6]
+  14:	e5959000 	ldr	r9, [r5]
+  18:	e2199008 	ands	r9, r9, #8
+  1c:	0afffffa 	beq	c <wait_key3>
+  20:	e59f0398 	ldr	r0, [pc, #920]	; 3c0 <numbers+0x19c>
+  24:	e59f1398 	ldr	r1, [pc, #920]	; 3c4 <numbers+0x1a0>
+  28:	e3a02064 	mov	r2, #100	; 0x64
+  2c:	e0802102 	add	r2, r0, r2, lsl #2
+  30:	eb000011 	bl	7c <init_numbers>
+  34:	e59f0388 	ldr	r0, [pc, #904]	; 3c4 <numbers+0x1a0>
+  38:	e1a01007 	mov	r1, r7
+  3c:	e3a02064 	mov	r2, #100	; 0x64
+  40:	e92d5ff0 	push	{r4, r5, r6, r7, r8, r9, r10, r11, r12, lr}
+  44:	e59f337c 	ldr	r3, [pc, #892]	; 3c8 <numbers+0x1a4>
+  48:	e583d000 	str	sp, [r3]
+  4c:	eb0000de 	bl	3cc <binary_search>
+  50:	e59f3370 	ldr	r3, [pc, #880]	; 3c8 <numbers+0x1a4>
+  54:	e593d000 	ldr	sp, [r3]
+  58:	e8bd5ff0 	pop	{r4, r5, r6, r7, r8, r9, r10, r11, r12, lr}
+  5c:	e59f4350 	ldr	r4, [pc, #848]	; 3b4 <numbers+0x190>
+  60:	e59f5350 	ldr	r5, [pc, #848]	; 3b8 <numbers+0x194>
+  64:	e59f6350 	ldr	r6, [pc, #848]	; 3bc <numbers+0x198>
+  68:	e5860000 	str	r0, [r6]
+
+0000006c <wait_key0>:
+  6c:	e5951000 	ldr	r1, [r5]
+  70:	e2111001 	ands	r1, r1, #1
+  74:	0afffffc 	beq	6c <wait_key0>
+  78:	eaffffe3 	b	c <wait_key3>
+
+0000007c <init_numbers>:
+  7c:	e4903004 	ldr	r3, [r0], #4
+  80:	e4813004 	str	r3, [r1], #4
+  84:	e1500002 	cmp	r0, r2
+  88:	bafffffb 	blt	7c <init_numbers>
+  8c:	e1a0f00e 	mov	pc, lr
+
+00000090 <mystackptr>:
+  90:	00000000 	.word	0x00000000
+
+00000094 <data>:
+  94:	0000001c 	.word	0x0000001c
+  98:	00000025 	.word	0x00000025
+  9c:	0000002c 	.word	0x0000002c
+  a0:	0000003c 	.word	0x0000003c
+  a4:	00000055 	.word	0x00000055
+  a8:	00000063 	.word	0x00000063
+  ac:	00000079 	.word	0x00000079
+  b0:	0000007f 	.word	0x0000007f
+  b4:	00000081 	.word	0x00000081
+  b8:	0000008a 	.word	0x0000008a
+  bc:	0000008f 	.word	0x0000008f
+  c0:	0000009b 	.word	0x0000009b
+  c4:	000000a2 	.word	0x000000a2
+  c8:	000000a4 	.word	0x000000a4
+  cc:	000000af 	.word	0x000000af
+  d0:	000000b3 	.word	0x000000b3
+  d4:	000000cd 	.word	0x000000cd
+  d8:	000000d4 	.word	0x000000d4
+  dc:	000000d9 	.word	0x000000d9
+  e0:	000000e7 	.word	0x000000e7
+  e4:	000000eb 	.word	0x000000eb
+  e8:	000000ee 	.word	0x000000ee
+  ec:	000000f2 	.word	0x000000f2
+  f0:	000000f8 	.word	0x000000f8
+  f4:	000000fa 	.word	0x000000fa
+  f8:	00000102 	.word	0x00000102
+  fc:	0000011b 	.word	0x0000011b
+ 100:	0000011e 	.word	0x0000011e
+ 104:	00000131 	.word	0x00000131
+ 108:	00000137 	.word	0x00000137
+ 10c:	0000013c 	.word	0x0000013c
+ 110:	00000142 	.word	0x00000142
+ 114:	00000146 	.word	0x00000146
+ 118:	0000015f 	.word	0x0000015f
+ 11c:	00000163 	.word	0x00000163
+ 120:	0000016c 	.word	0x0000016c
+ 124:	0000016e 	.word	0x0000016e
+ 128:	00000178 	.word	0x00000178
+ 12c:	00000187 	.word	0x00000187
+ 130:	0000018e 	.word	0x0000018e
+ 134:	00000198 	.word	0x00000198
+ 138:	0000019a 	.word	0x0000019a
+ 13c:	0000019f 	.word	0x0000019f
+ 140:	000001a2 	.word	0x000001a2
+ 144:	000001a9 	.word	0x000001a9
+ 148:	000001b5 	.word	0x000001b5
+ 14c:	000001b9 	.word	0x000001b9
+ 150:	000001c4 	.word	0x000001c4
+ 154:	000001da 	.word	0x000001da
+ 158:	000001e8 	.word	0x000001e8
+ 15c:	000001fa 	.word	0x000001fa
+ 160:	000001fb 	.word	0x000001fb
+ 164:	0000020e 	.word	0x0000020e
+ 168:	00000214 	.word	0x00000214
+ 16c:	00000216 	.word	0x00000216
+ 170:	00000223 	.word	0x00000223
+ 174:	00000224 	.word	0x00000224
+ 178:	00000247 	.word	0x00000247
+ 17c:	00000249 	.word	0x00000249
+ 180:	00000253 	.word	0x00000253
+ 184:	0000025b 	.word	0x0000025b
+ 188:	0000026d 	.word	0x0000026d
+ 18c:	00000280 	.word	0x00000280
+ 190:	00000295 	.word	0x00000295
+ 194:	0000029a 	.word	0x0000029a
+ 198:	000002b2 	.word	0x000002b2
+ 19c:	000002b4 	.word	0x000002b4
+ 1a0:	000002c9 	.word	0x000002c9
+ 1a4:	000002cf 	.word	0x000002cf
+ 1a8:	000002ee 	.word	0x000002ee
+ 1ac:	000002f3 	.word	0x000002f3
+ 1b0:	00000300 	.word	0x00000300
+ 1b4:	00000307 	.word	0x00000307
+ 1b8:	00000308 	.word	0x00000308
+ 1bc:	00000310 	.word	0x00000310
+ 1c0:	00000311 	.word	0x00000311
+ 1c4:	00000317 	.word	0x00000317
+ 1c8:	0000031d 	.word	0x0000031d
+ 1cc:	0000031e 	.word	0x0000031e
+ 1d0:	00000324 	.word	0x00000324
+ 1d4:	0000033c 	.word	0x0000033c
+ 1d8:	0000034a 	.word	0x0000034a
+ 1dc:	0000034e 	.word	0x0000034e
+ 1e0:	0000035a 	.word	0x0000035a
+ 1e4:	00000374 	.word	0x00000374
+ 1e8:	00000377 	.word	0x00000377
+ 1ec:	0000037a 	.word	0x0000037a
+ 1f0:	0000037d 	.word	0x0000037d
+ 1f4:	0000038c 	.word	0x0000038c
+ 1f8:	000003a8 	.word	0x000003a8
+ 1fc:	000003ab 	.word	0x000003ab
+ 200:	000003b9 	.word	0x000003b9
+ 204:	000003c0 	.word	0x000003c0
+ 208:	000003ca 	.word	0x000003ca
+ 20c:	000003d2 	.word	0x000003d2
+ 210:	000003d3 	.word	0x000003d3
+ 214:	000003d5 	.word	0x000003d5
+ 218:	000003de 	.word	0x000003de
+ 21c:	000003ea 	.word	0x000003ea
+ 220:	000003ef 	.word	0x000003ef
+
+00000224 <numbers>:
+ 224:	deadbeef 	.word	0xdeadbeef
+ 228:	deadbeef 	.word	0xdeadbeef
+ 22c:	deadbeef 	.word	0xdeadbeef
+ 230:	deadbeef 	.word	0xdeadbeef
+ 234:	deadbeef 	.word	0xdeadbeef
+ 238:	deadbeef 	.word	0xdeadbeef
+ 23c:	deadbeef 	.word	0xdeadbeef
+ 240:	deadbeef 	.word	0xdeadbeef
+ 244:	deadbeef 	.word	0xdeadbeef
+ 248:	deadbeef 	.word	0xdeadbeef
+ 24c:	deadbeef 	.word	0xdeadbeef
+ 250:	deadbeef 	.word	0xdeadbeef
+ 254:	deadbeef 	.word	0xdeadbeef
+ 258:	deadbeef 	.word	0xdeadbeef
+ 25c:	deadbeef 	.word	0xdeadbeef
+ 260:	deadbeef 	.word	0xdeadbeef
+ 264:	deadbeef 	.word	0xdeadbeef
+ 268:	deadbeef 	.word	0xdeadbeef
+ 26c:	deadbeef 	.word	0xdeadbeef
+ 270:	deadbeef 	.word	0xdeadbeef
+ 274:	deadbeef 	.word	0xdeadbeef
+ 278:	deadbeef 	.word	0xdeadbeef
+ 27c:	deadbeef 	.word	0xdeadbeef
+ 280:	deadbeef 	.word	0xdeadbeef
+ 284:	deadbeef 	.word	0xdeadbeef
+ 288:	deadbeef 	.word	0xdeadbeef
+ 28c:	deadbeef 	.word	0xdeadbeef
+ 290:	deadbeef 	.word	0xdeadbeef
+ 294:	deadbeef 	.word	0xdeadbeef
+ 298:	deadbeef 	.word	0xdeadbeef
+ 29c:	deadbeef 	.word	0xdeadbeef
+ 2a0:	deadbeef 	.word	0xdeadbeef
+ 2a4:	deadbeef 	.word	0xdeadbeef
+ 2a8:	deadbeef 	.word	0xdeadbeef
+ 2ac:	deadbeef 	.word	0xdeadbeef
+ 2b0:	deadbeef 	.word	0xdeadbeef
+ 2b4:	deadbeef 	.word	0xdeadbeef
+ 2b8:	deadbeef 	.word	0xdeadbeef
+ 2bc:	deadbeef 	.word	0xdeadbeef
+ 2c0:	deadbeef 	.word	0xdeadbeef
+ 2c4:	deadbeef 	.word	0xdeadbeef
+ 2c8:	deadbeef 	.word	0xdeadbeef
+ 2cc:	deadbeef 	.word	0xdeadbeef
+ 2d0:	deadbeef 	.word	0xdeadbeef
+ 2d4:	deadbeef 	.word	0xdeadbeef
+ 2d8:	deadbeef 	.word	0xdeadbeef
+ 2dc:	deadbeef 	.word	0xdeadbeef
+ 2e0:	deadbeef 	.word	0xdeadbeef
+ 2e4:	deadbeef 	.word	0xdeadbeef
+ 2e8:	deadbeef 	.word	0xdeadbeef
+ 2ec:	deadbeef 	.word	0xdeadbeef
+ 2f0:	deadbeef 	.word	0xdeadbeef
+ 2f4:	deadbeef 	.word	0xdeadbeef
+ 2f8:	deadbeef 	.word	0xdeadbeef
+ 2fc:	deadbeef 	.word	0xdeadbeef
+ 300:	deadbeef 	.word	0xdeadbeef
+ 304:	deadbeef 	.word	0xdeadbeef
+ 308:	deadbeef 	.word	0xdeadbeef
+ 30c:	deadbeef 	.word	0xdeadbeef
+ 310:	deadbeef 	.word	0xdeadbeef
+ 314:	deadbeef 	.word	0xdeadbeef
+ 318:	deadbeef 	.word	0xdeadbeef
+ 31c:	deadbeef 	.word	0xdeadbeef
+ 320:	deadbeef 	.word	0xdeadbeef
+ 324:	deadbeef 	.word	0xdeadbeef
+ 328:	deadbeef 	.word	0xdeadbeef
+ 32c:	deadbeef 	.word	0xdeadbeef
+ 330:	deadbeef 	.word	0xdeadbeef
+ 334:	deadbeef 	.word	0xdeadbeef
+ 338:	deadbeef 	.word	0xdeadbeef
+ 33c:	deadbeef 	.word	0xdeadbeef
+ 340:	deadbeef 	.word	0xdeadbeef
+ 344:	deadbeef 	.word	0xdeadbeef
+ 348:	deadbeef 	.word	0xdeadbeef
+ 34c:	deadbeef 	.word	0xdeadbeef
+ 350:	deadbeef 	.word	0xdeadbeef
+ 354:	deadbeef 	.word	0xdeadbeef
+ 358:	deadbeef 	.word	0xdeadbeef
+ 35c:	deadbeef 	.word	0xdeadbeef
+ 360:	deadbeef 	.word	0xdeadbeef
+ 364:	deadbeef 	.word	0xdeadbeef
+ 368:	deadbeef 	.word	0xdeadbeef
+ 36c:	deadbeef 	.word	0xdeadbeef
+ 370:	deadbeef 	.word	0xdeadbeef
+ 374:	deadbeef 	.word	0xdeadbeef
+ 378:	deadbeef 	.word	0xdeadbeef
+ 37c:	deadbeef 	.word	0xdeadbeef
+ 380:	deadbeef 	.word	0xdeadbeef
+ 384:	deadbeef 	.word	0xdeadbeef
+ 388:	deadbeef 	.word	0xdeadbeef
+ 38c:	deadbeef 	.word	0xdeadbeef
+ 390:	deadbeef 	.word	0xdeadbeef
+ 394:	deadbeef 	.word	0xdeadbeef
+ 398:	deadbeef 	.word	0xdeadbeef
+ 39c:	deadbeef 	.word	0xdeadbeef
+ 3a0:	deadbeef 	.word	0xdeadbeef
+ 3a4:	deadbeef 	.word	0xdeadbeef
+ 3a8:	deadbeef 	.word	0xdeadbeef
+ 3ac:	deadbeef 	.word	0xdeadbeef
+ 3b0:	deadbeef 	.word	0xdeadbeef
+ 3b4:	ff200040 	.word	0xff200040
+ 3b8:	ff200050 	.word	0xff200050
+ 3bc:	ff200000 	.word	0xff200000
+ 3c0:	00000094 	.word	0x00000094
+ 3c4:	00000224 	.word	0x00000224
+ 3c8:	00000090 	.word	0x00000090
+
+000003cc <binary_search>:
+ @r3 is a pointer
+
+ @r3,r4,r5,r6,r7
+
+@  int startIndex = 0; startIndex = r8
+MOV r8, #0
+ 3cc:	e3a08000 	mov	r8, #0
+
+@  int endIndex = length - 1; endIndex = r9
+SUB r9, r2, #1
+ 3d0:	e2429001 	sub	r9, r2, #1
+
+@  int middleIndex = endIndex /2; middle index = r10
+MOV r10, r9, LSR #1
+ 3d4:	e1a0a0a9 	lsr	r10, r9, #1
+
+@  int keyIndex = -1; keyIndex = r11
+MOV r11, #-1
+ 3d8:	e3e0b000 	mvn	r11, #0
+
+@  int NumIters = 1; NumIters r12
+MOV r12, #1
+ 3dc:	e3a0c001 	mov	r12, #1
+
+000003e0 <while_Loop>:
+@  while ( keyIndex == -1) {
+
+while_Loop:
+
+    @  if ( startIndex > endIndex )
+    CMP r8,r9
+ 3e0:	e1580009 	cmp	r8, r9
+    @ITE     GT
+    BGT  while_Loop_exit
+ 3e4:	ca00000c 	bgt	41c <while_Loop_exit>
+    @   break ;
+
+
+@  else if ( numbers [ middleIndex ] == key ) , numbers is r0
+
+    LDR r4, [r0,r10, LSL#2]
+ 3e8:	e790410a 	ldr	r4, [r0, r10, lsl #2]
+    CMP  r4, r1
+ 3ec:	e1540001 	cmp	r4, r1
+    @ITTE EQ
+    @  keyIndex = middleIndex 
+    MOVEQ  r11, r10
+ 3f0:	01a0b00a 	moveq	r11, r10
+
+@  else if ( numbers [ middleIndex ] > key ) {
+
+    @ITE GT
+    @  endIndex = middleIndex -1;
+    SUBGT r9,r10,#1
+ 3f4:	c24a9001 	subgt	r9, r10, #1
+
+@  } else {
+    @  startIndex = middleIndex +1;
+    ADDLT r8, r10, #1
+ 3f8:	b28a8001 	addlt	r8, r10, #1
+
+
+    @  numbers [ middleIndex ] = - NumIters ; NumIters = r12
+        
+        
+    RSB r4, r12, #0
+ 3fc:	e26c4000 	rsb	r4, r12, #0
+    STR r4, [r0,r10, LSL#2]
+ 400:	e780410a 	str	r4, [r0, r10, lsl #2]
+
+    @  middleIndex = startIndex + ( endIndex - startIndex )/2;
+    SUB r7, r9,r8
+ 404:	e0497008 	sub	r7, r9, r8
+    ADD r10, r8,r7, LSR #1
+ 408:	e088a0a7 	add	r10, r8, r7, lsr #1
+
+    @   NumIters ++;
+    ADD r12, r12, #1
+ 40c:	e28cc001 	add	r12, r12, #1
+    
+
+    MOV r7, #-1
+ 410:	e3e07000 	mvn	r7, #0
+    CMP r11, r7
+ 414:	e15b0007 	cmp	r11, r7
+    BEQ while_Loop
+ 418:	0afffff0 	beq	3e0 <while_Loop>
+
+0000041c <while_Loop_exit>:
+@  }
+while_Loop_exit:
+
+@  return keyIndex ;
+MOV r0, r11
+ 41c:	e1a0000b 	mov	r0, r11
+MOV pc,lr
+ 420:	e1a0f00e 	mov	pc, lr
